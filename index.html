@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team Dương Tra cứu — Zalo Auto</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">D</div><div><b>TEAM DƯƠNG</b><small>TRA CỨU · ZALO AUTO</small></div></div>
+  <div class="nav-label">MENU CHÍNH</div>
+  <a class="nav active" href="#dashboard">▦ <span>Tổng quan</span></a>
+  <a class="nav" href="#compose">✉ <span>Soạn tin theo người nhận</span></a>
+  <a class="nav" href="#recipients">♙ <span>Danh sách người nhận</span></a>
+  <a class="nav" href="#connection">⚙ <span>Kết nối Zalo</span></a>
+  <div class="sidebar-bottom"><span class="pulse"></span><b>Chưa kết nối Zalo</b><p>Đây là bản giao diện chạy thử. Chưa gửi tin thật.</p></div>
+</aside>
+<main id="dashboard">
+  <header><div><div class="kicker">BẢNG ĐIỀU KHIỂN</div><h1>Zalo Auto</h1><p class="sub">Quản lý nội dung riêng cho từng người nhận.</p></div><div class="admin"><div class="admin-avatar">TD</div><div><b>Team Dương</b><small>Quản trị viên</small></div></div></header>
+  <div class="warning"><b>ⓘ Chưa kết nối API gửi tin</b><span>Bạn có thể soạn, lưu danh sách và xuất dữ liệu. Để gửi Zalo thật, cần tích hợp phương thức API được Zalo hỗ trợ.</span></div>
+  <section class="metrics">
+    <div class="metric"><span>Người nhận</span><strong id="metricRecipients">0</strong><small>Trong danh sách hiện tại</small></div>
+    <div class="metric"><span>Tin nhắn đã soạn</span><strong id="metricMessages">0</strong><small>Có nội dung riêng</small></div>
+    <div class="metric"><span>Trạng thái kết nối</span><strong class="orange">Chưa kết nối</strong><small>Cần cấu hình tích hợp</small></div>
+  </section>
+  <section class="panel" id="compose">
+    <div class="panel-heading"><div><h2>Soạn tin nhắn theo từng số điện thoại</h2><p class="sub">Mỗi người nhận có nội dung riêng.</p></div><span class="pill">BẢN NHÁP</span></div>
+    <div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="search" placeholder="Tìm theo tên hoặc số điện thoại..."></div><button class="btn secondary" id="addRecipient">＋ Thêm người nhận</button></div>
+    <div class="table-scroll"><table><thead><tr><th>NGƯỜI NHẬN</th><th>SỐ ĐIỆN THOẠI</th><th>NỘI DUNG TIN NHẮN RIÊNG</th><th>TRẠNG THÁI</th><th></th></tr></thead><tbody id="recipientRows"></tbody></table></div>
+    <div class="empty-state" id="emptyState"><div class="empty-icon">✉</div><b>Chưa có người nhận</b><p>Thêm số điện thoại và nội dung riêng để bắt đầu soạn danh sách.</p><button class="btn primary" id="emptyAdd">＋ Thêm người nhận đầu tiên</button></div>
+    <div class="bottom-actions"><span id="draftSummary">0 người nhận · 0 tin có nội dung</span><div><button class="btn secondary" id="exportCsv">Xuất danh sách CSV</button><button class="btn primary" id="reviewSend">Kiểm tra trước khi gửi</button></div></div>
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+  </section>
+  <section class="two-col">
+    <section class="panel" id="connection"><div class="panel-heading"><div><h2>Kết nối Zalo</h2><p class="sub">Cấu hình phương thức tích hợp được hỗ trợ.</p></div><span class="connection-badge">● Chưa kết nối</span></div>
+      <div class="connection-card"><div class="oa-icon">Z</div><div><b>Zalo API / Official Account</b><p>Gửi tin thật chỉ hoạt động khi ứng dụng có quyền và phương thức gửi phù hợp.</p><a href="https://developers.zalo.me/" target="_blank" rel="noreferrer">Mở Zalo Developers ↗</a></div></div>
+      <div class="qr-area"><div class="qr-fake"><span>QR</span><small>Chưa có QR</small></div><div><b>Đăng nhập bằng QR</b><p>Trang tĩnh không thể tự tạo mã QR đăng nhập Zalo cá nhân hợp lệ. Chỉ kết nối khi có luồng được Zalo hỗ trợ.</p></div></div>
+      <button class="btn secondary full" id="requirements">Xem yêu cầu để gửi tin thật</button>
+    </section>
+    <section class="panel"><div class="panel-heading"><div><h2>Quy trình sử dụng</h2><p class="sub">Các bước trên bản hiện tại.</p></div></div>
+      <div class="step"><span>1</span><div><b>Thêm người nhận</b><p>Nhập tên và số điện thoại.</p></div></div>
+      <div class="step"><span>2</span><div><b>Soạn nội dung riêng</b><p>Viết tin phù hợp cho từng người.</p></div></div>
+      <div class="step"><span>3</span><div><b>Kiểm tra danh sách</b><p>Xuất CSV để lưu hoặc chuyển sang hệ thống tích hợp.</p></div></div>
+      <div class="step"><span>4</span><div><b>Kết nối API</b><p>Cần backend và quyền gửi được cấp.</p></div></div>
+    </section>
+  </section>
+  <footer>Team Dương Tra cứu · Bản giao diện thử nghiệm · Chỉ liên hệ người đã đồng ý nhận tin.</footer>
+</main>
+</div>
+<dialog id="recipientDialog"><form id="recipientForm"><div class="dialog-head"><h2 id="dialogTitle">Thêm người nhận</h2><button type="button" class="x" id="closeDialog">×</button></div><label for="recipientName">Tên người nhận</label><input id="recipientName" required placeholder="Ví dụ: Nguyễn Văn A"><label for="recipientPhone">Số điện thoại</label><input id="recipientPhone" required inputmode="tel" placeholder="Ví dụ: 09xxxxxxxx"><label for="recipientMessage">Nội dung tin nhắn riêng</label><textarea id="recipientMessage" required maxlength="2000" placeholder="Nhập nội dung dành riêng cho người này..."></textarea><div class="dialog-note">Chỉ thêm người đã đồng ý nhận tin. Dữ liệu bản demo lưu trong trình duyệt hiện tại.</div><div class="dialog-actions"><button type="button" class="btn secondary" id="cancelDialog">Hủy</button><button class="btn primary" type="submit">Lưu người nhận</button></div></form></dialog>
+<dialog id="infoDialog"><div class="info-content"><div class="dialog-head"><h2>Để gửi tin Zalo thật</h2><button class="x" id="closeInfo">×</button></div><ol><li>Xác định phương thức API được Zalo hỗ trợ cho mục đích gửi tin.</li><li>Thiết lập ứng dụng, quyền và người nhận theo chính sách hiện hành.</li><li>Tạo backend để gọi API; không đặt access token trong mã frontend.</li><li>Triển khai backend và kiểm tra phản hồi gửi thành công/thất bại.</li></ol><p>Đăng nhập QR Zalo cá nhân và gửi tin tùy ý theo số điện thoại không thể được bảo đảm bằng API OA. Bản này chưa gửi tin thật.</p><button class="btn primary full" id="gotIt">Đã hiểu</button></div></dialog>
+<script src="app.js"></script>
+</body></html>
